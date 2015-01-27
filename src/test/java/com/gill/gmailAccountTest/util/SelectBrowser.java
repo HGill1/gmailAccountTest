@@ -1,8 +1,7 @@
 package com.gill.gmailAccountTest.util;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
-
-import net.sourceforge.htmlunit.corejs.javascript.ast.SwitchCase;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -20,10 +19,11 @@ public class SelectBrowser {
 		// TODO Auto-generated constructor stub
 	}
 
-	public static WebDriver getDriver() {
+	public static WebDriver getDriver() throws IOException {
 
 		if (driver == null) {
-			String browser = ReadConfigFile.getBrowser();
+			ReadConfigFile conf =  new ReadConfigFile();
+			String browser = conf.getBrowser();
 
 			switch (browser) {
 			case "1":
@@ -35,7 +35,7 @@ public class SelectBrowser {
 				break;
 				
 			case "3":
-				 driver = new HtmlUnitDriver();
+				 driver = new HtmlUnitDriver(true);
 				break;
 				
 			case "4":
@@ -51,9 +51,9 @@ public class SelectBrowser {
 
 	}
 
-	private static WebDriver getChromeDriver() {
-
-		String chromeDriverPath =  ReadConfigFile.getChromeDriver();
+	private static WebDriver getChromeDriver() throws IOException {
+		ReadConfigFile conf =  new ReadConfigFile();
+		String chromeDriverPath =  conf.getChromeDriver();
 		System.setProperty("webdriver.chrome.driver",chromeDriverPath);
 		ChromeOptions options = new ChromeOptions();
 		DesiredCapabilities capabilities =  DesiredCapabilities.chrome();
@@ -61,6 +61,16 @@ public class SelectBrowser {
 		driver = new ChromeDriver(capabilities);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		return driver;
+	}
+	
+	public static WebDriver getIEDriver() throws IOException{		
+		ReadConfigFile conf =  new ReadConfigFile();
+		DesiredCapabilities ieCapabilities =DesiredCapabilities.internetExplorer(); 
+		ieCapabilities.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS, true);
+		System.setProperty("webdriver.ie.driver", conf.getIEDriver());
+		WebDriver driver = new InternetExplorerDriver(ieCapabilities);
+		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+	return driver;
 	}
 
 }

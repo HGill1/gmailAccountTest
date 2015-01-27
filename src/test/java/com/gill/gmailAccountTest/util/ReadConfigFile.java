@@ -17,30 +17,30 @@ public class ReadConfigFile {
 
 	}
 
-	public static String getUrl() {
+	public String getUrl() {
 
 		return properties.getProperty("url");
 
 	}
 
-	public static String getDriverWait() {
+	public  String getDriverWait() {
 		return properties.getProperty("driver_wait");
 	}
 
-	public static String getMaxWindow() {
+	public  String getMaxWindow() {
 		return properties.getProperty("maximize_browser");
 	}
 	
-	public static String getBrowser(){
+	public  String getBrowser(){
 		
 		return properties.getProperty("browser_name");
 	}
 
-	public static String getChromeDriver() {
+	public  String getChromeDriver() {
 		return properties.getProperty("chrome_server_location_ubuntu");
 	}
 	
-	public static String getIEDriver() {
+	public  String getIEDriver() {
 		return properties.getProperty("ie_server_location");
 	}
 
