@@ -21,7 +21,7 @@ public class HomePage extends AbstractPage {
 	public LoginPage clickGmailLink(){
 		gmailLink.click();
 		logger.info("gmail Link clicked");
-		return PageFactory.initElements(driver, LoginPage.class);
+		return getPage(LoginPage.class);
 		
 	}
 

@@ -30,5 +30,9 @@ public class AbstractPage {
 		driver.navigate().to("https://www.google.co.uk/");
 		return PageFactory.initElements(driver, HomePage.class);
 	}
+	
+	public <T> T  getPage( Class<T> classs) {
+		return PageFactory.initElements(driver, classs);
+	}
 
 }

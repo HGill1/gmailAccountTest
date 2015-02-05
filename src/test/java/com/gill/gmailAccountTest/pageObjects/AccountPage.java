@@ -69,14 +69,16 @@ public class AccountPage extends AbstractPage {
 		phoneNumber.sendKeys("7574535779");
 		skipCaptcha.click();
 		termsOfService.click();
-		return PageFactory.initElements(driver, AccountPage.class);
+		return getPage(AccountPage.class);
 
 	}
+
+	
 	
 	public AccountPage clickNextButton() {
 		
 		submitButton.click();		
-		return PageFactory.initElements(driver, AccountPage.class);		
+		return getPage(AccountPage.class);	
 	}
 	
 	public String verifyUsernameErrorMessage(){

@@ -18,7 +18,7 @@ public class LoginPage extends AbstractPage {
 
 	public AccountPage clickOnCreateAccountLink() {
 		createAccountLink.click();
-		return PageFactory.initElements(driver, AccountPage.class);
+		return getPage(AccountPage.class);
 
 	}
 
