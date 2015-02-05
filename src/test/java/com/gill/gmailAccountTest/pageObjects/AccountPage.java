@@ -10,46 +10,46 @@ import org.openqa.selenium.support.PageFactory;
 public class AccountPage extends AbstractPage {
 	
 	@FindBy(name = "FirstName")
-	WebElement firstName;
+	private WebElement firstName;
 	
 	@FindBy(name = "LastName")
-	WebElement lastName;
+	private WebElement lastName;
 	
 	@FindBy(name = "GmailAddress")
-	WebElement username;
+	private WebElement username;
 	
 	@FindBy(name = "Passwd")
-	WebElement password;
+	private WebElement password;
 	
 	@FindBy(name = "PasswdAgain")
-	WebElement confirmPassword;
+	private WebElement confirmPassword;
 	
 	@FindBy(name = "BirthMonth")
-	WebElement birthMonth;
+	private WebElement birthMonth;
 	
 	@FindBy(name = "BirthDay")
-	WebElement birthDay;
+	private WebElement birthDay;
 	
 	@FindBy(name = "BirthYear")
-	WebElement birthYear;	
+	private WebElement birthYear;	
 	
 	@FindBy(name = "Gender")
-	WebElement gender;
+	private WebElement gender;
 	
 	@FindBy(name = "RecoveryPhoneNumber")
-	WebElement phoneNumber;
+	private WebElement phoneNumber;
 	
 	@FindBy(name = "SkipCaptcha")
-	WebElement skipCaptcha;
+	private WebElement skipCaptcha;
 	
 	@FindBy(name = "TermsOfService")
-	WebElement termsOfService;
+	private WebElement termsOfService;
 	
 	@FindBy(name = "submitbutton")
-	WebElement submitButton;
+	private WebElement submitButton;
 	
 	@FindBy(id = "errormsg_0_GmailAddress")
-	WebElement errmsgUsername;
+	private WebElement errmsgUsername;
 
 	public AccountPage(WebDriver driver) {
 

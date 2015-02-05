@@ -8,7 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage extends AbstractPage {
 
 	@FindBy(linkText = "Create an account")
-	WebElement createAccountLink;
+	private WebElement createAccountLink;
 
 	public LoginPage(WebDriver driver) {
 
