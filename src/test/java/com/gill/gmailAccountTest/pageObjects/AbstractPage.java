@@ -1,5 +1,6 @@
 package com.gill.gmailAccountTest.pageObjects;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -18,12 +19,19 @@ public class AbstractPage {
 		return driver;
 	}
 
-	public WebElement waitForPageToLoad(WebElement element,
-			int maxTime) {
-
-		return (new WebDriverWait(driver, maxTime)).until(ExpectedConditions
-			.visibilityOf(element));
-
+	public WebElement waitForElementToVisible(WebElement element,
+			int maxTime) {		
+		
+		WebDriverWait wait =  new WebDriverWait(driver, maxTime);
+		return wait.until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public Alert waitForAlertMessage(Alert alert,
+			int maxTime) {		
+		
+		WebDriverWait wait =  new WebDriverWait(driver, maxTime);
+		return wait.until(ExpectedConditions.alertIsPresent());
+		
 	}
 
 	public HomePage nevigateToGoogle() {
